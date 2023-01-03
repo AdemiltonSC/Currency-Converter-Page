@@ -13,7 +13,6 @@
 </head>
 <body class="bg-dark" style="height: 100vh;">
     <header class="container ">
-
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -28,15 +27,47 @@
             </div>
         </nav>
     </header>
+
+
     <main class="container h-auto">
         <div class="row align-items-center justify-content-center">
-            <div class="col-6 ">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text text-bg-success">$</span>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text text-bg-success" id="basic-addon1">
+                        $
+                    </span>
+                    <input type="text" class="form-control text-bg-light" placeholder="Insira o valor (ex.: 3000)"
+                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1">
+
+                    <button class="btn dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
+                        MOEDA 1</button>
+                    <ul class="dropdown-menu bg-success">
+                        <li><button class="dropdown-item ">REAL</button></li>
+                        <li><button class="dropdown-item ">DOLLAR</button></li>
+                        <li><button class="dropdown-item ">YENNE</button></li>
+                    </ul>
+
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text text-bg-success" id="basic-addon1">
+                        $
+                    </span>
+                    <input type="text" class="form-control text-bg-light" placeholder="Valor destino"
+                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1">
+                
+                    <button class="btn dropdown-toggle btn-outline-success" data-bs-toggle="dropdown"
+                        aria-expanded="false">MOEDA 2</button>
+                    <ul class="dropdown-menu bg-success">
+                        <li><button class="dropdown-item ">REAL</button></li>
+                        <li><button class="dropdown-item ">DOLLAR</button></li>
+                        <li><button class="dropdown-item ">YENNE</button></li>
+                    </ul>
+                
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success ">Converter</button>
                     </div>
-                    
-                    <input type="text" class="form-control text-bg-light" placeholder="Insira o valor (ex.: 3000)">
                 </div>
             </div>
         </div>
