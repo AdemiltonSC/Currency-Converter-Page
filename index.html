@@ -31,47 +31,73 @@
 
     <main class="container h-auto">
         <div class="row align-items-center justify-content-center">
-            <div class="col-6">
-                <div class="input-group mb-3">
-                    <span class="input-group-text text-bg-success" id="basic-addon1">
+            <div class="col-md-6">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text text-bg-success border-2" id="basic-addon1">
                         $
                     </span>
-                    <input type="text" class="form-control text-bg-light" placeholder="Insira o valor (ex.: 3000)"
-                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1">
-
-                    <button class="btn dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
+                    <input type="text" min="1" max="100000" step="2"
+                        class="form-control text-bg-light text-end border-end pe-2"
+                        placeholder="Insira o valor (ex.: 3000)"
+                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1" id="valor-origem">
+                    <span class="input-group-text text-bg-light border-2 ps-1 rounded-end-5 z-1">
+                        ,00</span>
+                    <button class="btn dropdown-toggle btn-outline-success ps-4 border-start-0 z-0"
+                        style = "
+                            margin-left:-1.3rem;
+                            width: 30%
+                        "
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                        id="moedas-origem">
                         MOEDA 1</button>
+
                     <ul class="dropdown-menu bg-success">
-                        <li><button class="dropdown-item ">REAL</button></li>
-                        <li><button class="dropdown-item ">DOLLAR</button></li>
-                        <li><button class="dropdown-item ">YENNE</button></li>
+                        <li><button class="dropdown-item moeda-real">REAL</button></li>
+                        <li><button class="dropdown-item moeda-dollar">DOLLAR</button></li>
+                        <li><button class="dropdown-item moeda-yenne">YENNE</button></li>
                     </ul>
 
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text text-bg-success" id="basic-addon1">
+                
+                <div class="container border-2 mb-3">
+                    <span class=" text-success p-1 h4 ">TO</span>
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text text-bg-success border-2" id="basic-addon1">
                         $
                     </span>
-                    <input type="text" class="form-control text-bg-light" placeholder="Valor destino"
-                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1">
-                
-                    <button class="btn dropdown-toggle btn-outline-success" data-bs-toggle="dropdown"
-                        aria-expanded="false">MOEDA 2</button>
-                    <ul class="dropdown-menu bg-success">
-                        <li><button class="dropdown-item ">REAL</button></li>
-                        <li><button class="dropdown-item ">DOLLAR</button></li>
-                        <li><button class="dropdown-item ">YENNE</button></li>
+                    <input type="text"  min="1" max="100000" step="2"
+                        class="form-control text-bg-light text-end border-end pe-2"
+                        placeholder="Valor destino"
+                        aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA"
+                        aria-describedby="basic-addon1" id="valor-destino">
+                    <span class="input-group-text text-bg-light border-2 ps-1 rounded-end-5 z-1">
+                        ,00</span>
+                    <button class="btn dropdown-toggle btn-outline-success ps-4 border-start-0 z-0"
+                        style = "
+                            margin-left:-1.3rem;
+                            width: 30%
+                        "
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false" id ="moedas-destino">
+                        MOEDA 2</button>
+                    <ul class="dropdown-menu bg-success z-0">
+                        <li><button class="dropdown-item moeda-real">REAL</button></li>
+                        <li><button class="dropdown-item moeda-dollar">DOLLAR</button></li>
+                        <li><button class="dropdown-item moeda-yenne">YENNE</button></li>
                     </ul>
                 
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-auto">
-                        <button class="btn btn-outline-success ">Converter</button>
+                        <button class="btn btn-outline-success btn-lg" id="btn-converter">Converter</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
+    <script src="script.js"></script>    
 </body>
 </html>
