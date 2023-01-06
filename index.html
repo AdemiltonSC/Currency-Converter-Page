@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="script2.js"></script>
 </head>
 <body class="bg-dark" style="height: 100vh;">
     <header class="container ">
@@ -36,7 +37,7 @@
                     <span class="input-group-text text-bg-success border-2" id="basic-addon1">
                         $
                     </span>
-                    <input type="text" min="1" max="100000" step="2"
+                    <input type="text" min="1" max="100000" step="2" value="" autocomplete="off"
                         class="form-control text-bg-light text-end border-end pe-2"
                         placeholder="Insira o valor (ex.: 3000)"
                         aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA" aria-describedby="basic-addon1" id="valor-origem">
@@ -50,12 +51,10 @@
                         data-bs-toggle="dropdown" 
                         aria-expanded="false"
                         id="moedas-origem">
-                        MOEDA 1</button>
+                        DOLLAR</button>
 
-                    <ul class="dropdown-menu bg-success">
-                        <li><button class="dropdown-item moeda-real">REAL</button></li>
-                        <li><button class="dropdown-item moeda-dollar">DOLLAR</button></li>
-                        <li><button class="dropdown-item moeda-yenne">YENNE</button></li>
+                    <ul class="dropdown-menu bg-success menu-currency">
+                        
                     </ul>
 
                 </div>
@@ -68,7 +67,7 @@
                     <span class="input-group-text text-bg-success border-2" id="basic-addon1">
                         $
                     </span>
-                    <input type="text"  min="1" max="100000" step="2"
+                    <input type="text"  min="1" max="100000" step="2" value="" autocomplete="off"
                         class="form-control text-bg-light text-end border-end pe-2"
                         placeholder="Valor destino"
                         aria-label="VALOR ORIGEM COM BOTÃO PRA ESCOLHER A MOEDA"
@@ -82,7 +81,7 @@
                         "
                         data-bs-toggle="dropdown"
                         aria-expanded="false" id ="moedas-destino">
-                        MOEDA 2</button>
+                        REAL</button>
                     <ul class="dropdown-menu bg-success z-0">
                         <li><button class="dropdown-item moeda-real">REAL</button></li>
                         <li><button class="dropdown-item moeda-dollar">DOLLAR</button></li>
@@ -98,6 +97,6 @@
             </div>
         </div>
     </main>
-    <script src="script.js"></script>    
+    <script src="script.js"></script>
 </body>
 </html>
