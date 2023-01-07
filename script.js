@@ -1,3 +1,17 @@
+// Adding the currencies
+// <li><button class="dropdown-item moeda-real">REAL</button></li>
+let targets = document.querySelectorAll(".menu-currency");
+let moedas_classes = ["moeda-real", "moeda-yenne", "moeda-dollar"];
+for (let targ = 0; targ<2; targ++){
+    let target = targets[targ];
+    for (let index = 0; index < moedas_classes.length; index++) {
+        let elem = document.createElement('li');
+        elem.innerHTML = "<button class='dropdown-item " + moedas_classes[index] + "'>" +
+            moedas_classes[index].slice(6).toUpperCase() + "</button>";
+        target.appendChild(elem);
+    }
+}
+
 // Coleta dos elementos
 btn_yenne = document.querySelectorAll(".moeda-yenne")
 btn_real = document.querySelectorAll(".moeda-real")
@@ -13,16 +27,16 @@ valor_destino = document.querySelector("#valor-destino")
 // Escolher a moeda de origem e destino
 for (let index = 0; index < btn_yenne.length; index++) {
     btn_yenne[index].addEventListener("click", change_currency)
-    btn_yenne.myParam = index+"YENNE"
+    btn_yenne[index].myParam = index+"YENNE"
 }
 
 for (let index = 0; index < btn_yenne.length; index++) {
     btn_real[index].addEventListener("click", change_currency)
-    btn_real.myParam = index+"REAL"
+    btn_real[index].myParam = index+"REAL"
 }
 for (let index = 0; index < btn_yenne.length; index++) {
     btn_dollar[index].addEventListener("click", change_currency)
-    btn_dollar.myParam = index+"DOLLAR"
+    btn_dollar[index].myParam = index+"DOLLAR"
 }
 
 
@@ -34,26 +48,14 @@ let cambio = {
     "REAL": 1
 }
 
-// CHANGE ON DEMAND
+// CHANGing ON DEMAND, when typing new values
 valor_origem.addEventListener('keyup', update)
-
-// Adding the currencies
-// <li><button class="dropdown-item moeda-real">REAL</button></li>
-
-let target = document.querySelector(".menu-currency")
-let moedas_classes = ["moeda-real", "moeda-yenne", "moeda-dollar"]
-for (let index = 0; index < 3; index++) {
-    let elem = document.createElement('li')
-    elem.innerHTML = "<button class='dropdown-item " + moedas_classes[index] + "'>"+
-                moedas_classes[index].slice(6).toUpperCase() + "</button>"
-    target.appendChild(elem)
-}
 
 // functions
 // Changing Currency
 function change_currency(evt){
-    update()
     console.log("change_currency")
+    
     let evento = evt.currentTarget
     let moeda = evento.myParam.slice(1)
     let index = evt.currentTarget.myParam.slice(0,1)
@@ -62,16 +64,32 @@ function change_currency(evt){
     } else {
         moeda_destino.textContent = moeda
     }
+    update()
 }
 
-function update(){
-
+function update(evt){
+    console.log("update")
     let valor_origem_float = parseFloat(valor_origem.value)
 
-    if (valor_origem != NaN) {
-        valor_destino.value = 
-        ((valor_origem_float / cambio[moeda_origem.textContent]) * cambio[moeda_destino.textContent]).toFixed(2)
+    if (valor_origem_float != NaN) {
+        let part1 = (valor_origem_float / cambio[moeda_origem.textContent])
+        let part2 = (part1 * cambio[moeda_destino.textContent]).toFixed(2) 
+        if (!(part2 > 0)) {
+            part2 = 0
+        }
+        valor_destino.value = part2
     }
+    
+}
+
+// Working from html directly
+function onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+        return false;
+    }
+    return true;
 }
 
 // <li><button class="dropdown-item moeda-real">REAL</button></li>
